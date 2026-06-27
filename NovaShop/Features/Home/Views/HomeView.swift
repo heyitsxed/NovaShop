@@ -11,6 +11,8 @@ struct HomeView: View {
     @State private var searchText: String = ""
     @State private var selectedProduct: UUID? = nil
     
+    @State private var viewModel = HomeViewModel()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -24,7 +26,9 @@ struct HomeView: View {
                     BannerView()
                     CategoriesView()
                     
-                    PopularProductsView()
+                    PopularProductsView(
+                        vm: viewModel
+                    )
                     
                     Spacer()
                 }
