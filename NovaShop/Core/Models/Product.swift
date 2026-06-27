@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct GridProduct: Identifiable {
+struct Product: Identifiable, Hashable {
     let id = UUID()
     let name: String
-    let price: String
+    let price: Double
     let imageName: String
+    let description: String
+    let rating: Double
+    let reviewCount: Int
+    
+    let availableSizes: [ProductSize]
 }

@@ -7,7 +7,7 @@
 
 enum AppStrings {
     enum Home {
-        static let greeting = "Hi, John 👋"
+        static let greeting = "Hi, Ced 👋"
         static let searchPlaceHolder = "Search products..."
     }
     
@@ -25,5 +25,11 @@ enum AppStrings {
     enum PopularProducts {
         static let title = "Popular Products"
         static let seeAll = "See All"
+    }
+    
+    enum ProductDetail {
+        static let addToCart = "Add to Cart"
+        static let buyNow = "Buy Now"
+        static let size = "Size"
     }
 }

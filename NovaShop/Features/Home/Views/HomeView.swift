@@ -12,21 +12,28 @@ struct HomeView: View {
     @State private var selectedProduct: UUID? = nil
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 30) {
-                GreetingHeaderView()
-                SearchBarView(
-                    searchText: ""
-                )
-                
-                BannerView()
-                CategoriesView()
-                
-                PopularProductsView(
-                    selectedProduct: $selectedProduct
-                )
-                
-                Spacer()
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 30) {
+                    GreetingHeaderView()
+                    
+                    SearchBarView(
+                        searchText: ""
+                    )
+                    
+                    BannerView()
+                    CategoriesView()
+                    
+                    PopularProductsView()
+                    
+                    Spacer()
+                }
+            }
+            .navigationDestination(for: HomeNavigationDestination.self) { destination in
+                switch destination {
+                case .productDetail(let product):
+                    ProductDetailView(product: product)
+                }
             }
         }
     }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PopularProductsView: View {
-    @Binding var selectedProduct: UUID?
     
     let columns = [
         GridItem(.flexible(), spacing: 10),
@@ -16,10 +15,69 @@ struct PopularProductsView: View {
     ]
     
     let products = [
-        GridProduct(name: "Nike Air Max", price: "$400", imageName: "shoes1"),
-        GridProduct(name: "Nike Jordan Max", price: "$30.00", imageName: "shoes2"),
-        GridProduct(name: "Nike Max", price: "$200", imageName: "shoes3"),
-        GridProduct(name: "Addidas", price: "$4.00", imageName: "shoes4")
+        Product(
+            name: "Nike Air Max",
+            price: 245.22,
+            imageName: "shoes1",
+            description: "Comfortable shoes for running and it's good for everyday wear.",
+            rating: 12.2,
+            reviewCount: 21,
+            availableSizes: [
+                ProductSize(size: "7"),
+                ProductSize(size: "8"),
+                ProductSize(size: "9"),
+                ProductSize(size: "10"),
+                ProductSize(size: "11")
+            ]
+        ),
+        
+        Product(
+            name: "Nike Jordan Max",
+            price: 245.22,
+            imageName: "shoes2",
+            description: "Comfortable shoes for running and it's good for everyday wear.",
+            rating: 12.2,
+            reviewCount: 21,
+            availableSizes: [
+                ProductSize(size: "7"),
+                ProductSize(size: "8"),
+                ProductSize(size: "9"),
+                ProductSize(size: "10"),
+                ProductSize(size: "11")
+            ]
+        ),
+        
+        Product(
+            name: "Addidas",
+            price: 245.22,
+            imageName: "shoes3",
+            description: "Comfortable shoes for running and it's good for everyday wear.",
+            rating: 12.2,
+            reviewCount: 21,
+            availableSizes: [
+                ProductSize(size: "7"),
+                ProductSize(size: "8"),
+                ProductSize(size: "9"),
+                ProductSize(size: "10"),
+                ProductSize(size: "11")
+            ]
+        ),
+        
+        Product(
+            name: "World Balance",
+            price: 245.22,
+            imageName: "shoes4",
+            description: "Comfortable shoes for running and it's good for everyday wear.",
+            rating: 12.2,
+            reviewCount: 21,
+            availableSizes: [
+                ProductSize(size: "7"),
+                ProductSize(size: "8"),
+                ProductSize(size: "9"),
+                ProductSize(size: "10"),
+                ProductSize(size: "11")
+            ]
+        ),
     ]
     
     var body: some View {
@@ -35,28 +93,10 @@ struct PopularProductsView: View {
         
         LazyVGrid(columns: columns) {
             ForEach(products, id: \.id) { product in
-                VStack(alignment: .leading, spacing: 5) {
-
-                Rectangle()
-                    .fill(Color(.systemGray6))
-                    .frame(width: 170, height: 180)
-                    .cornerRadius(10)
-                    .overlay {
-                        Image(product.imageName)
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    .onTapGesture {
-                        selectedProduct = product.id
-                        print(product.id)
-                    }
-                
-                    Text(product.name)
-                        .font(.system(size: 17, weight: .semibold))
-
-                    Text(product.price)
-                        .font(.system(size: 17, weight: .semibold))
+                NavigationLink(value: HomeNavigationDestination.productDetail(product)) {
+                    ProductCardView(product: product)
                 }
+                .buttonStyle(.plain)
             }
         }
         .padding(.horizontal, 15)
