@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CategoryItem: Identifiable {
+struct ProductCategory: Identifiable, Hashable {
     let id = UUID()
     let iconName: String
     let name: String

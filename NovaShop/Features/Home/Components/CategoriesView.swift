@@ -11,10 +11,10 @@ struct CategoriesView: View {
     @State private var selectedCategoryID: UUID? = nil
 
     let categories = [
-        CategoryItem(iconName: "shoe", name: "Shoes"),
-        CategoryItem(iconName: "bag", name: "Bags"),
-        CategoryItem(iconName: "tshirt", name: "Watches"),
-        CategoryItem(iconName: "phone", name: "Clothing")
+        ProductCategory(iconName: "shoe", name: "Shoes"),
+        ProductCategory(iconName: "bag", name: "Bags"),
+        ProductCategory(iconName: "tshirt", name: "Watches"),
+        ProductCategory(iconName: "phone", name: "Clothing")
     ]
     
     var body: some View {
@@ -36,7 +36,7 @@ struct CategoriesView: View {
                         VStack {
                             ZStack {
                                 Circle()
-                                    .fill(selectedCategoryID == category.id ? .blue : Color(.systemGray3))
+                                    .fill(selectedCategoryID == category.id ? Color(hex: AppColor.purpleThemeColor) : Color(.systemGray3))
                                     .frame(width: 60, height: 60)
                                 
                                 Image(systemName: category.iconName)
