@@ -42,7 +42,8 @@ struct CategoriesView: View {
                                 Image(systemName: category.iconName)
                                     .resizable()
                                     .scaledToFit()
-                                    .foregroundColor(selectedCategoryID == category.id ? .white : .primary)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(selectedCategoryID == category.id ? .white : Color(hex: AppColor.purpleThemeColor))
                                     .frame(width: 20, height: 20)
                             }
                             
