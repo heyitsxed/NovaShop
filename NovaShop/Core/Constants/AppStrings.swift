@@ -32,4 +32,13 @@ enum AppStrings {
         static let buyNow = "Buy Now"
         static let size = "Size"
     }
+    
+    enum Cart {
+        static let checkout = "Checkout"
+        static let edit = "Edit"
+        static let orderSummary = "Order Summary"
+        static let subTotal = "Subtotal"
+        static let shipping = "Shipping"
+        static let total = "Total"
+    }
 }

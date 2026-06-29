@@ -15,7 +15,7 @@ struct CartHeaderView: View {
             
             Spacer()
             
-            Button("Edit") {
+            Button(AppStrings.Cart.edit) {
                 
             }
             .font(.system(size: 19))
