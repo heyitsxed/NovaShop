@@ -21,7 +21,7 @@ struct ProductDetailView: View {
                 product: product
             )
             
-            ActionsButtonView()
+            ActionsButtonView(product: product)
             
             Spacer()
         }

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct CartHeaderView: View {
+    let product: [Product]
+    
     var body: some View {
         HStack {
-            Text("My Cart (2)")
+            Text("My Cart (\(product.count))")
                 .font(.system(size: 24, weight: .bold))
             
             Spacer()

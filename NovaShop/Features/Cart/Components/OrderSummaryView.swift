@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct OrderSummaryView: View {
+
+    let total: Double
+    
     var body: some View {
         Text(AppStrings.Cart.orderSummary)
             .font(.system(size: 17, weight: .bold))
@@ -20,7 +23,7 @@ struct OrderSummaryView: View {
                 
                 Spacer()
                 
-                Text("$7,994")
+                Text(total, format: .currency(code: "PHP"))
                     .font(.system(size: 17, weight: .semibold))
             }
             
@@ -30,7 +33,7 @@ struct OrderSummaryView: View {
 
                 Spacer()
                 
-                Text("$100")
+                Text("$0")
                     .font(.system(size: 17, weight: .semibold))
             }
             
@@ -42,7 +45,7 @@ struct OrderSummaryView: View {
                 
                 Spacer()
                 
-                Text("$8,094")
+                Text(total, format: .currency(code: "PHP"))
                     .font(.system(size: 18, weight: .bold))
                     .foregroundColor(Color(hex: AppColor.purpleThemeColor))
                 

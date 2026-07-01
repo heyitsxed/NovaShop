@@ -12,7 +12,8 @@ struct HomeView: View {
     @State private var selectedProduct: UUID? = nil
     
     @State private var viewModel = HomeViewModel()
-    
+    @Environment(CartManager.self) private var cart
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -45,4 +46,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environment(CartManager())
 }

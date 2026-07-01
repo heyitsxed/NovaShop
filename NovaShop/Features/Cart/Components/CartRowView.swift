@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CartRowView: View {
     @Binding var itemQuantity: Int
+    @Environment(CartManager.self) private var cart
+
+    let product: Product
     
     var body: some View {
         HStack(spacing: 16) {
@@ -16,27 +19,29 @@ struct CartRowView: View {
                 .fill(Color(.systemGray6))
                 .frame(width: 100, height: 100)
                 .overlay {
-                    Image("shoes1")
+                    Image(product.imageName)
                         .resizable()
                         .scaledToFit()
                 }
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("Nike Air Max Pro")
+                Text(product.name)
                     .lineLimit(2)
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.system(size: 16, weight: .bold))
                 
-                Text("Size 7")
+                Text(product.availableSizes.first?.size ?? "")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.secondary)
                 
-                Text("$400")
-                    .font(.system(size: 18, weight: .bold))
+                Text(product.price, format: .currency(code: "PHP"))
+                    .font(.system(size: 16, weight: .bold))
             }
             
             Spacer()
             
-            CartStepper(quantity: $itemQuantity, maxLimit: 10)
+            CartStepper(quantity: $itemQuantity, maxLimit: 10) {
+                cart.delete(product: product)
+            }
         }
         .padding()
         .background(Color(.white))

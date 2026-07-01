@@ -12,6 +12,7 @@ struct CartStepper: View {
     
     var minLimit: Int = 1
     var maxLimit: Int = 99
+    var delete: () -> Void
     
     var body: some View {
         HStack(spacing: 0) {
@@ -22,14 +23,13 @@ struct CartStepper: View {
                     .frame(width: 36, height: 36)
                     .background(Color(.white))
             }
-            .disabled(quantity <= minLimit)
             
             Text("\(quantity)")
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundColor(.primary)
                 .frame(width: 30, height: 36)
                 .background(Color(.white))
-
+            
             Button(action: increaseQuantity) {
                 Image(systemName: "plus")
                     .font(.system(size: 14, weight: .bold))
@@ -52,8 +52,11 @@ struct CartStepper: View {
             withAnimation(.spring(response: 0.2, dampingFraction: 0.6)) {
                 quantity -= 1
             }
-            triggerHapticFeedback()
+        } else {
+            delete()
         }
+        
+        triggerHapticFeedback()
     }
     
     private func increaseQuantity() {

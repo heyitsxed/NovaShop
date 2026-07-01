@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct NovaShopApp: App {
+    @State private var cart = CartManager()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(cart)
         }
     }
 }
