@@ -17,7 +17,7 @@ struct CartStepper: View {
     var body: some View {
         HStack(spacing: 0) {
             Button(action: decreaseQuantity) {
-                Image(systemName: "minus")
+                Image(systemName: quantity <= minLimit ? "trash" : "minus")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundColor(quantity <= minLimit ? .secondary : .primary)
                     .frame(width: 36, height: 36)

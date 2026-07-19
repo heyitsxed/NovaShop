@@ -14,9 +14,10 @@ struct ProductCardView: View {
         VStack(alignment: .leading, spacing: 5) {
             
             Rectangle()
-                .fill(Color(.systemGray6))
+                .fill(Color(.white))
                 .frame(width: 170, height: 180)
                 .cornerRadius(10)
+                .shadow(color: Color.black.opacity(0.1), radius: 15, x: 0, y: 10)
                 .overlay {
                     Image(product.imageName)
                         .resizable()

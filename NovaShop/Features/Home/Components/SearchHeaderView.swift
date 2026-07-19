@@ -30,9 +30,10 @@ struct SearchBarView: View {
         }
         .padding()
         .background(Color(.white))
+        .shadow(color: Color.black.opacity(0.1), radius: 15, x: 0, y: 10)
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(.systemGray2), lineWidth: 1)
+                .stroke(Color(.black), lineWidth: 0.2)
         }
         .padding(.horizontal, 15)
     }

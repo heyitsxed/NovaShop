@@ -35,7 +35,23 @@ struct CartView: View {
 
 private extension CartView {
     var emptyState: some View {
-        Text("Empty")
+        VStack {
+            Image("empty-cart")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 220, height: 220)
+            
+            VStack(spacing: 5) {
+                Text("Your Cart is Empty")
+                    .font(.system(size: 20, weight: .semibold))
+                    .padding(.horizontal, 15)
+                
+                Text("Your cart is waiting. Find something you like and add it to get started.")
+                    .font(.system(size: 14, weight: .regular))
+                    .padding(.horizontal, 35)
+                    .multilineTextAlignment(.center)
+            }
+        }
     }
     
     var cartContent: some View {
@@ -61,8 +77,4 @@ private extension CartView {
             .padding(.horizontal, 15)
         }
     }
-}
-
-#Preview {
-    CartView()
 }

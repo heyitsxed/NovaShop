@@ -13,8 +13,8 @@ struct CategoriesView: View {
     let categories = [
         ProductCategory(iconName: "shoe", name: "Shoes"),
         ProductCategory(iconName: "bag", name: "Bags"),
-        ProductCategory(iconName: "tshirt", name: "Watches"),
-        ProductCategory(iconName: "phone", name: "Clothing")
+        ProductCategory(iconName: "tshirt", name: "Clothing"),
+        ProductCategory(iconName: "phone", name: "Devices")
     ]
     
     var body: some View {
@@ -36,19 +36,20 @@ struct CategoriesView: View {
                         VStack {
                             ZStack {
                                 Circle()
-                                    .fill(selectedCategoryID == category.id ? Color(hex: AppColor.purpleThemeColor) : Color(.systemGray3))
+                                    .fill(selectedCategoryID == category.id ? Color(hex: AppColor.purpleThemeColor) : Color(.white))
                                     .frame(width: 60, height: 60)
+                                    .shadow(color: Color.black.opacity(0.1), radius: 15, x: 0, y: 10)
                                 
                                 Image(systemName: category.iconName)
                                     .resizable()
                                     .scaledToFit()
                                     .fontWeight(.semibold)
                                     .foregroundColor(selectedCategoryID == category.id ? .white : Color(hex: AppColor.purpleThemeColor))
-                                    .frame(width: 20, height: 20)
+                                    .frame(width: 25, height: 25)
                             }
                             
                             Text(category.name)
-                                .font(.system(size: 15, weight: .regular))
+                                .font(.system(size: 13, weight: .semibold))
                                 .multilineTextAlignment(.center)
                         }
                         .onTapGesture {
