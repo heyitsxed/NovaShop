@@ -30,20 +30,28 @@ class CartManager {
 struct ActionsButtonView: View {
     
     @Environment(CartManager.self) private var cart
+    @State private var isShowingAlert: Bool = false
     
     let product: Product
     
     var body: some View {
         VStack(spacing: 15) {
             PrimaryButton(title: AppStrings.ProductDetail.addToCart) {
-                print("Add to cart")
                 cart.add(product: product)
+                isShowingAlert = true
             }
             
             SecondaryButton(title: AppStrings.ProductDetail.buyNow) {
                 print("Buy now")
             }
         }
+        
         .padding(.top, 10)
+        .alert(AppStrings.Cart.addedToCart, isPresented: $isShowingAlert) {
+            Button("OK", role: .cancel) {}
+            
+        } message: {
+            Text(AppStrings.Cart.addedToCartDescription)
+        }
     }
 }

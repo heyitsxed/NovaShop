@@ -42,11 +42,11 @@ private extension CartView {
                 .frame(width: 220, height: 220)
             
             VStack(spacing: 5) {
-                Text("Your Cart is Empty")
+                Text(AppStrings.Cart.cartIsEmpty)
                     .font(.system(size: 20, weight: .semibold))
                     .padding(.horizontal, 15)
                 
-                Text("Your cart is waiting. Find something you like and add it to get started.")
+                Text(AppStrings.Cart.cartDescription)
                     .font(.system(size: 14, weight: .regular))
                     .padding(.horizontal, 35)
                     .multilineTextAlignment(.center)

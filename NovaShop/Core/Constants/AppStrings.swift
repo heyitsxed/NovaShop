@@ -40,5 +40,9 @@ enum AppStrings {
         static let subTotal = "Subtotal"
         static let shipping = "Shipping"
         static let total = "Total"
+        static let cartIsEmpty = "Your Cart is Empty"
+        static let cartDescription = "Your cart is waiting. Find something you like and add it to get started."
+        static let addedToCart = "Added to Cart"
+        static let addedToCartDescription = "The item has been added to your cart."
     }
 }
