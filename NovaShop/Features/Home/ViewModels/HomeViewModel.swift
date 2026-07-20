@@ -18,6 +18,7 @@ class HomeViewModel {
             description: "Comfortable shoes for running and it's good for everyday wear.",
             rating: 12.2,
             reviewCount: 21,
+            quantity: 1,
             availableSizes: [
                 ProductSize(size: "7"),
                 ProductSize(size: "8"),
@@ -34,6 +35,7 @@ class HomeViewModel {
             description: "Comfortable shoes for running and it's good for everyday wear.",
             rating: 12.2,
             reviewCount: 21,
+            quantity: 1,
             availableSizes: [
                 ProductSize(size: "7"),
                 ProductSize(size: "8"),
@@ -50,6 +52,7 @@ class HomeViewModel {
             description: "Comfortable shoes for running and it's good for everyday wear.",
             rating: 12.2,
             reviewCount: 21,
+            quantity: 1,
             availableSizes: [
                 ProductSize(size: "7"),
                 ProductSize(size: "8"),
@@ -66,6 +69,7 @@ class HomeViewModel {
             description: "Comfortable shoes for running and it's good for everyday wear.",
             rating: 12.2,
             reviewCount: 21,
+            quantity: 1,
             availableSizes: [
                 ProductSize(size: "7"),
                 ProductSize(size: "8"),

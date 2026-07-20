@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct CartView: View {
-    @State private var itemQuantity: Int = 1
     @Environment(CartManager.self) private var cart
     
     private var totalPrice: Double {
         cart.items.reduce(0) { total, item in
-            total + (item.product.price * Double(itemQuantity))
+            total + (item.product.price * Double(item.product.quantity))
         }
     }
     
@@ -55,14 +54,16 @@ private extension CartView {
     }
     
     var cartContent: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        @Bindable var cart = cart
+        
+        return VStack(alignment: .leading, spacing: 20) {
             
             CartHeaderView(product: allProducts)
             
             ScrollView {
                 VStack {
-                    ForEach(cart.items) { item in
-                        CartRowView(itemQuantity: $itemQuantity, product: item.product)
+                    ForEach($cart.items) { $item in
+                        CartRowView(item: $item)
                     }
                 }
             }

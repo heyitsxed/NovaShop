@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CartItem: Identifiable {
     let id = UUID()
-    let product: Product
+    var product: Product
 }
 
 @Observable

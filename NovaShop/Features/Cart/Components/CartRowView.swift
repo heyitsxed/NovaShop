@@ -8,39 +8,37 @@
 import SwiftUI
 
 struct CartRowView: View {
-    @Binding var itemQuantity: Int
+    @Binding var item: CartItem
     @Environment(CartManager.self) private var cart
-
-    let product: Product
-    
+        
     var body: some View {
         HStack(spacing: 16) {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color(.systemGray6))
                 .frame(width: 100, height: 100)
                 .overlay {
-                    Image(product.imageName)
+                    Image(item.product.imageName)
                         .resizable()
                         .scaledToFit()
                 }
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(product.name)
+                Text(item.product.name)
                     .lineLimit(2)
                     .font(.system(size: 16, weight: .bold))
                 
-                Text(product.availableSizes.first?.size ?? "")
+                Text(item.product.availableSizes.first?.size ?? "")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.secondary)
                 
-                Text(product.price, format: .currency(code: "PHP"))
+                Text(item.product.price, format: .currency(code: "PHP"))
                     .font(.system(size: 16, weight: .bold))
             }
             
             Spacer()
             
-            CartStepper(quantity: $itemQuantity, maxLimit: 10) {
-                cart.delete(product: product)
+            CartStepper(quantity: $item.product.quantity, maxLimit: 10) {
+                cart.delete(product: item.product)
             }
         }
         .padding()

@@ -15,6 +15,7 @@ struct Product: Identifiable, Hashable {
     let description: String
     let rating: Double
     let reviewCount: Int
+    var quantity: Int
     
     let availableSizes: [ProductSize]
 }
